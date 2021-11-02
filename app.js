@@ -57,6 +57,15 @@ class DrumKit {
       this.isPlaying = null
     }
   }
+  updateButton() {
+    if (!this.isPlaying) {
+      this.playButton.innerText = "Stop"
+      this.playButton.classList.add("active")
+    } else {
+      this.playButton.innerText = "Play"
+      this.playButton.classList.remove("active")
+    }
+  }
 }
 
 const drumKit = new DrumKit()
@@ -70,5 +79,6 @@ drumKit.pads.forEach((pad) => {
 })
 
 drumKit.playButton.addEventListener("click", function () {
+  drumKit.updateButton()
   drumKit.start()
 })
