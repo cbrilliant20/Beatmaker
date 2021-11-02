@@ -2,7 +2,9 @@ class DrumKit {
   constructor() {
     this.pads = document.querySelectorAll(".pad")
     this.playButton = document.querySelector(".play")
-    // console.log(this.playBtn)
+    this.currentKick = "./sounds/kick-class.wav"
+    this.currentsnare = "./sounds/snare-acoustic01.wav"
+    this.currenthihat = "./sounds/hihat-acoustic01.wav"
     this.kickAudio = document.querySelector(".kick-sound")
     this.snareAudio = document.querySelector(".snare-sound")
     this.hihatAudio = document.querySelector(".hihat-sound")
@@ -10,6 +12,8 @@ class DrumKit {
     this.bpm = 150
     // Stopping the interval from repeating on play
     this.isPlaying = null
+    this.selects = document.querySelectorAll("select")
+    this.muteButtons = document.querySelectorAll(".mute")
   }
   activePad() {
     this.classList.toggle("active")
@@ -66,11 +70,58 @@ class DrumKit {
       this.playButton.classList.remove("active")
     }
   }
+  changeSound(e) {
+    const selectionName = e.target.name
+    const selectionValue = e.target.value
+    console.log(selectionName, selectionValue)
+    // Setting audio src to selectionValue
+    switch (selectionName) {
+      case "kick-select":
+        this.kickAudio.src = selectionValue
+        break
+      case "snare-select":
+        this.snareAudio.src = selectionValue
+        break
+      case "hihat-select":
+        this.hihatAudio.src = selectionValue
+        break
+    }
+  }
+  mute(e) {
+    const muteIndex = e.target.getAttribute("data-track")
+    e.target.classList.toggle("active")
+    if (e.target.classList.contains("active")) {
+      switch (muteIndex) {
+        case "0":
+          this.kickAudio.volume = 0
+          break
+        case "1":
+          this.snareAudio.volume = 0
+          break
+        case "2":
+          this.hihatAudio.volume = 0
+          break
+      }
+    } else {
+      switch (muteIndex) {
+        case "0":
+          this.kickAudio.volume = 1
+          break
+        case "1":
+          this.snareAudio.volume = 1
+          break
+        case "2":
+          this.hihatAudio.volume = 1
+          break
+      }
+    }
+  }
 }
 
 const drumKit = new DrumKit()
 
 // Event Listeners
+
 drumKit.pads.forEach((pad) => {
   pad.addEventListener("click", drumKit.activePad)
   pad.addEventListener("animationend", function () {
@@ -81,4 +132,16 @@ drumKit.pads.forEach((pad) => {
 drumKit.playButton.addEventListener("click", function () {
   drumKit.updateButton()
   drumKit.start()
+})
+
+drumKit.selects.forEach((select) => {
+  select.addEventListener("change", function (e) {
+    drumKit.changeSound(e)
+  })
+})
+
+drumKit.muteButtons.forEach((button) => {
+  button.addEventListener("click", function (e) {
+    drumKit.mute(e)
+  })
 })
