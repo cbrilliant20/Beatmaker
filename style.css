@@ -14,7 +14,14 @@ i,
 svg {
   pointer-events: none;
 }
-
+h1 {
+  text-align: center;
+  padding: 2rem;
+  font-size: 4rem;
+}
+h2 {
+  font-size: 1.5rem;
+}
 .kick-pad,
 .snare-pad,
 .hihat-pad {
@@ -50,10 +57,10 @@ svg {
 
 .sequencer {
   display: flex;
-  min-height: 100vh;
+  height: 100vh;
   flex-direction: column;
   align-items: center;
-  justify-content: center;
+  justify-content: flex-start;
 }
 
 .hihat-track,
@@ -63,7 +70,7 @@ svg {
   align-items: center;
   width: 90%;
   justify-content: space-between;
-  margin: 5rem;
+  margin: 1rem 5rem;
 }
 
 .kick,
@@ -101,7 +108,8 @@ svg {
   color: white;
   border: none;
   cursor: pointer;
-  margin-top: 3rem;
+  margin-top: 2rem;
+  border-radius: 0.5rem;
 }
 
 select {
@@ -110,12 +118,16 @@ select {
   margin-left: 1rem;
 }
 
+.mute {
+  border-radius: 0.5rem;
+}
+
 .mute.active {
   background: rgb(223, 221, 221);
 }
 
 .tempo {
-  margin: 3rem;
+  margin: 2rem;
   width: 30%;
 }
 
@@ -133,7 +145,7 @@ select {
 .tempo p {
   text-align: center;
   font-size: 1.5rem;
-  margin: 2rem;
+  margin: 1rem 2rem;
 }
 
 @keyframes playTrack {
