@@ -5,23 +5,29 @@
 }
 
 body {
-  font-family: sans-serif;
+  font-family: "Poppins", sans-serif;
   max-width: 1124px;
   margin: 0 auto;
+  background-color: #faf9f9;
+  color: #555b6e !important;
 }
 
 i,
 svg {
   pointer-events: none;
 }
+
 h1 {
   text-align: center;
   padding: 2rem;
-  font-size: 4rem;
+  font-size: 2.5rem;
 }
+
 h2 {
   font-size: 1.5rem;
+  min-width: 6rem;
 }
+
 .kick-pad,
 .snare-pad,
 .hihat-pad {
@@ -29,6 +35,7 @@ h2 {
   height: 3rem;
   margin: 1rem 0.5rem;
   cursor: pointer;
+  box-shadow: 1px 1px 6px;
 }
 
 .kick-pad {
@@ -68,7 +75,7 @@ h2 {
 .snare-track {
   display: flex;
   align-items: center;
-  width: 90%;
+  width: 95%;
   justify-content: space-between;
   margin: 1rem 5rem;
 }
@@ -89,12 +96,13 @@ h2 {
 
 .controls button {
   padding: 1rem;
-  border: none;
-  background-color: rgb(168, 167, 167);
-  color: white;
   font-size: 1rem;
   cursor: pointer;
   transform: all 0.5s ease;
+  background: white;
+  border: none;
+  outline: none;
+  box-shadow: 2px 2px 6px #89b0ae;
 }
 
 .pad {
@@ -103,27 +111,43 @@ h2 {
 
 .play {
   padding: 1rem 2rem;
-  font-size: 1.5rem;
-  background-color: rgb(168, 167, 167);
-  color: white;
-  border: none;
+  font-size: 1.25rem;
   cursor: pointer;
   margin-top: 2rem;
   border-radius: 0.5rem;
+  transform: all 0.5s ease;
+  background: white;
+  border: none;
+  outline: none;
+  box-shadow: 2px 2px 6px #89b0ae;
+}
+
+.play.active {
+  background: #bee3db;
+  transition: all 0.25s ease;
 }
 
 select {
   padding: 1rem;
   font-size: 1rem;
   margin-left: 1rem;
+  min-width: 10rem;
+  background: white;
+  border: none;
+  outline: none;
+  box-shadow: 2px 2px 6px #89b0ae;
 }
 
 .mute {
   border-radius: 0.5rem;
+  transition: all 0.25s ease;
+  background: white;
 }
 
 .mute.active {
-  background: rgb(223, 221, 221);
+  background: #bee3db;
+  transition: all 0.25s ease;
+  box-shadow: 2px 2px 6px #89b0ae;
 }
 
 .tempo {
@@ -137,14 +161,16 @@ select {
   -moz-image-region: 1rem 0rem;
   width: 100%;
   position: relative;
-  background: rgb(80, 80, 80);
+  background: white;
+  transition: all 0.25s ease;
   cursor: pointer;
   border-radius: 1rem;
+  box-shadow: 2px 2px 6px #89b0ae;
 }
 
 .tempo p {
   text-align: center;
-  font-size: 1.5rem;
+  font-size: 1.25rem;
   margin: 1rem 2rem;
 }
 
@@ -155,4 +181,13 @@ select {
   to {
     transform: scale(1.2);
   }
+}
+
+input[type="range"]::-webkit-slider-thumb {
+  border-radius: 50%;
+  height: 1.25rem;
+  width: 1.25rem;
+  background: #555b6e;
+  cursor: pointer;
+  -webkit-appearance: none;
 }
