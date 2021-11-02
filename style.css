@@ -6,6 +6,8 @@
 
 body {
   font-family: sans-serif;
+  max-width: 1124px;
+  margin: 0 auto;
 }
 
 i,
@@ -16,8 +18,8 @@ svg {
 .kick-pad,
 .snare-pad,
 .hihat-pad {
-  width: 5rem;
-  height: 5rem;
+  width: 3rem;
+  height: 3rem;
   margin: 1rem 0.5rem;
   cursor: pointer;
 }
@@ -108,8 +110,30 @@ select {
   margin-left: 1rem;
 }
 
-.mute.active{
+.mute.active {
   background: rgb(223, 221, 221);
+}
+
+.tempo {
+  margin: 3rem;
+  width: 30%;
+}
+
+.tempo-slider {
+  padding: 0.4rem;
+  -webkit-appearance: none;
+  -moz-image-region: 1rem 0rem;
+  width: 100%;
+  position: relative;
+  background: rgb(80, 80, 80);
+  cursor: pointer;
+  border-radius: 1rem;
+}
+
+.tempo p {
+  text-align: center;
+  font-size: 1.5rem;
+  margin: 2rem;
 }
 
 @keyframes playTrack {
